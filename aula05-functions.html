@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+</head>
+
+<body>
+    <h2>JavaScript Funções</h2>
+
+    <button id="chamar-funcao" onclick="chamarFuncao()">Clique-me para chamar uma função</button>
+
+    <p id="mostrar-texto"></p>
+
+    <hr>
+
+    <button id="funcao-com-parametro" onclick="funcaoComParametro('Rafael')">Clique me para chamar uma função com
+        parâmetro.</button>
+
+    <p id="mostrar-texto-2"></p>
+
+    <hr>
+
+    <button onclick="exibirPegarNome()">Click me</button>
+
+    <p id="mt-3"></p>
+
+    <hr>
+
+    <button onclick="exibirPegarNomePar()">Click me</button>
+
+    <p id="mt-4"></p>
+
+    <hr>
+
+    <button onclick="func()">Click me</button>
+
+    <p id="mt-5"></p>
+
+    <script>
+        // Declarações:         VAR, CONST, LET
+
+        //função 1
+        function chamarFuncao() {
+            document.getElementById("mostrar-texto").innerHTML = "Aqui é onde o texto aparecerá quando clicar no botão";
+        }
+
+        //função 2
+        function funcaoComParametro(nome) {
+            document.getElementById("mostrar-texto-2").innerHTML =
+                "Aqui é onde o texto aparecerá quando clicar no botão. Função com parâmetro. Parâmetro = " + nome;
+        }
+
+        //função 3
+        function pegarNome() {
+            return "Emesson";
+        }
+
+        var nome = pegarNome();
+
+        function exibirPegarNome() {
+            document.getElementById("mt-3").innerHTML = nome;
+        }
+
+        //função 4
+        function pegarNomePar(parametro) {
+            if (parametro === 1){
+                
+            return "Emesson";
+            } else {
+                return "Outro nome";
+            }
+        }
+
+        var nome = pegarNomePar(2);
+
+        function exibirPegarNomePar() {
+            document.getElementById("mt-4").innerHTML = nome;
+        }
+
+        //função 4
+        var func = function(){
+            alert('Olá mundo!');
+        }
+
+        func();
+
+        //função 5 - essa função chama a si mesmo automaticamente.
+        (function(){
+            alert('Olá mundo 2');
+        })();
+    </script>
+</body>
+
+</html>

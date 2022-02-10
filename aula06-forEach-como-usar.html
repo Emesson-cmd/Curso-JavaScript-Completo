@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForEach</title>
+</head>
+
+<body>
+    <h2>JavaScript ForEach</h2>
+
+    <!--Exemplo 1-->
+
+    <p>Loop com for</p>
+
+    <button onclick="chamarFuncao()">Click me</button>
+
+    <p id="exibir"></p>
+
+    <hr>
+
+    <!--Exemplo 2-->
+
+    <p>O forEach serve para interagir num array ou objetos</p>
+
+    <button onclick="chamarFuncao2()">Click me</button>
+
+    <p id="exibir2"></p>
+
+    <hr>
+
+    <!--Exemplo 3-->
+
+    <p>Ver o index de cada elemento</p>
+
+    <button onclick="chamarFuncao3()">Click me</button>
+
+    <p id="exibir3"></p>
+
+    <hr>
+
+
+    <script>
+        // Exemplo 1
+        function chamarFuncao() {
+            var nomes = ["Emesson", "Pedro", "João"];
+
+            for (var i = 0; i < nomes.length; i++) {
+                document.getElementById("exibir").innerHTML += nomes[i] + "<br>";
+            }
+        }
+
+        //Exemplo 2 - usando forEach
+        function chamarFuncao2() {
+            var nomes = ["Emesson", "Pedro", "João"];
+
+            nomes.forEach(function (value, index) {
+                document.getElementById("exibir2").innerHTML += value + "<br>";
+            })
+        }
+
+        //Exemplo 3 - usando forEach
+        function chamarFuncao3() {
+            var nomes = ["Emesson", "Pedro", "João"];
+
+            nomes.forEach(function (value, index) {
+                document.getElementById("exibir3").innerHTML += index + "<br>";
+            })
+        }
+    </script>
+</body>
+
+</html>

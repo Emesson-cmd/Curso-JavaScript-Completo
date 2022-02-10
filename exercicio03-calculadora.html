@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+
+<body>
+
+    <h2>Calculadora</h2>
+
+    <!--Função 1-->
+
+    <button onclick="chamarFuncao()">Informe o primeiro número</button>
+
+    <p id="exibir"></p>
+
+    <hr>
+
+    <!--Função 2-->
+
+    <button onclick="chamarFuncao2()">Informe o sinal de operação (+, -, * ou /)</button>
+
+    <p id="exibir2"></p>
+
+    <hr>
+
+    <!--Função 3-->
+
+    <button onclick="chamarFuncao3()">Informe o segundo número</button>
+
+    <p id="exibir3"></p>
+
+    <hr>
+
+    <!--Função 4-->
+
+    <button onclick="chamarFuncao4()">Fazer calculo</button>
+
+    <p id="exibir4"></p>
+
+    <hr>
+
+    <script>
+        var valorPrimeiro = 0;
+        var sinal = '';
+        var valorSegundo = 0;
+        var calculo = 0;
+        
+        function chamarFuncao() {
+            valorPrimeiro = prompt("Informe o primeiro número:")
+
+            document.getElementById("exibir").innerHTML = "O primeiro valor é " + valorPrimeiro;
+
+        }
+
+        function chamarFuncao2() {
+            sinal = prompt("Informe a operação:")
+
+            while(sinal != "+" && sinal != "-" && sinal != "*" && sinal != "/"){
+                sinal = prompt("Informe a operação válida:")
+            }
+
+            document.getElementById("exibir2").innerHTML = "A operação é " + sinal;
+        }
+
+        function chamarFuncao3() {
+            valorSegundo = prompt("Informe o segundo número:")
+
+            document.getElementById("exibir3").innerHTML = "O segundo valor é " + valorSegundo;
+        }
+
+        function chamarFuncao4(){
+            valorPrimeiro = parseInt(valorPrimeiro);
+            valorSegundo = parseInt(valorSegundo);
+
+            if (sinal == "+"){
+                calculo = valorPrimeiro + valorSegundo;
+            } else if (sinal == "-"){
+                calculo = valorPrimeiro - valorSegundo;
+            } else if (sinal == "*"){
+                calculo = valorPrimeiro * valorSegundo;
+            } else if (sinal == "/"){
+                calculo = valorPrimeiro / valorSegundo;
+            }
+
+            document.getElementById("exibir4").innerHTML = "O valor resultante é " + calculo;
+        }
+    </script>
+</body>
+
+</html>

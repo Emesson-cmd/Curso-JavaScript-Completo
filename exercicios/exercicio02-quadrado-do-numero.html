@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios 02 com JavaScript</title>
+    <style>
+        .center{
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h2>Exercícios 02</h2>
+
+        <p>2 – Faça um programa que entre com cinco números e imprima o quadrado de cada número.</p>
+        
+        <button onclick="digitarNota()">Digite uma nota</button>
+        <button onclick="calcularMedia()">Calcular média</button>
+
+        <p>A média das notas é: </p>
+        <p id="media-notas">0.0</p>
+
+        <button onclick="limparCampos()">Limpar campos</button>
+
+        <hr>    
+
+        
+    </div>
+
+    <script>
+        var nota = 0;
+        var media = 0;
+        var qtdeNotas = 0;
+
+        function digitarNota(){
+            nota = prompt("Informe uma nota tirada (digite somente números): ");
+            media = media + parseFloat(nota);
+            qtdeNotas++;
+        }
+
+        function calcularMedia(){
+            media = media / qtdeNotas;
+            document.getElementById("media-notas").innerHTML = media;
+        }
+
+        function limparCampos(){
+            document.getElementById("media-notas").innerHTML = "0.0";
+            nota = 0;
+            media = 0;
+            qtdeNotas = 0;
+        }
+    </script>
+</body>
+</html>

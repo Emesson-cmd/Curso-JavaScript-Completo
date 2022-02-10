@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+
+<body>
+
+    <h2>Calcular ano de nascimento</h2>
+
+    <button onclick="chamarFuncao()">Informe seu ano de nascimento</button>
+
+    <p id="exibir"></p>
+
+    <hr>
+
+    <button onclick="chamarFuncao2()">Informe o ano atual</button>
+
+    <p id="exibir2"></p>
+
+    <hr>
+
+    <button onclick="chamarFuncao3()">Calcular sua idade</button>
+
+    <p id="exibir3"></p>
+
+    <hr>
+
+    <script>
+        var anoNascimento = 0;
+        var anoAtual = 0;
+        var idade = 0;
+        
+        function chamarFuncao() {
+            anoNascimento = prompt("Informe o seu ano de nascimento:")
+
+            while(anoNascimento > 2022){
+                anoNascimento = prompt("Informe o seu ano de nascimento corretamente:")
+            }
+
+            document.getElementById("exibir").innerHTML = "Seu ano de nascimento é " + anoNascimento;
+        }
+
+        function chamarFuncao2() {
+            anoAtual = prompt("Informe o ano atual:");
+
+            document.getElementById("exibir2").innerHTML = "O ano atual é " + anoAtual;
+        }
+
+        function chamarFuncao3() {
+            idade = anoAtual - anoNascimento;
+            document.getElementById("exibir3").innerHTML = "Sua idade é " + idade;
+        }
+    </script>
+</body>
+
+</html>

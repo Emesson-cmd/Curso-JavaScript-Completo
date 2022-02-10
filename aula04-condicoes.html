@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições</title>
+</head>
+<body>
+    <h2>JavaScript Condições</h2>
+
+    <p></p>
+
+    <p id="demo"></p>
+    <p id="demo-2"></p>
+    <p id="demo-3"></p>
+    <p id="demo-4"></p>
+
+    <script>
+        var nome = "Emesson";
+        var idade = 20;
+        var casado = false;
+        var sexo = "m";
+
+        if (nome === "Emesson"){
+            document.getElementById("demo").innerHTML = nome;
+        } if (idade >= 18){
+            document.getElementById("demo-2").innetHTML = "O usuário é de maior";
+        } if (idade < 18) {
+            document.getElementById("demo-2").innetHTML = "O usuário é de menor";
+        } if (casado === false){
+            document.getElementById("demo-3").innerHTML = "Usuário nao casado";
+            console.log(nome);
+        } if (sexo === "m"){
+            document.getElementById("demo-4").innerHTML = "Usuário masculino";
+        }
+    </script>
+</body>
+</html>

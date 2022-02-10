@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis</title>
+</head>
+<body>
+    <h2>JavaScript Arrays</h2>
+
+    <p>The best way to loop through an array is using a standard for loop:</p>
+
+    <p id="demo"></p>
+
+    <script>
+        // Arrays
+
+        /*var nomes = ['Emesson', 'Guilherme', 'Pedro', 'Maria'];
+        console.log(nomes[3]);*/
+
+        var nomes = new Array('Emesson', 'Pedro');
+        console.log(nomes[0]);
+
+        // Adiciona ao Array
+        nomes.push("Renan");
+
+        console.log(nomes[2]);
+
+        // FAZER LOOP NO ARRAY
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        let fLen = fruits.length;
+
+        let text = "<ul>";
+        for (let i = 0; i < fLen; i++) {
+        text += "<li>" + fruits[i] + "</li>";
+        }
+        text += "</ul>";
+
+        document.getElementById("demo").innerHTML = text;
+
+    </script>
+</body>
+</html>
