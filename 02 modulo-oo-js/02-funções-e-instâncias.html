@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções e Instâncias</title>
+
+    <h2>Mostrar qual informação?</h2>
+
+    <button onclick="chamarFuncao()">Verificar informação</button>
+
+    <p id="exibir"></p>
+
+    <hr>
+
+    <h2>Passando parâmetro na função</h2>
+
+    <button onclick="chamarAnimal()">Verificar informação</button>
+
+    <p id="exibir2"></p>
+    <p id="exibir3"></p>
+
+    <hr>
+
+    <h2>Passando objeto como parâmetro na função</h2>
+
+    <button onclick="chamarObjPar()">Verificar informação</button>
+
+    <p id="exibir4"></p>
+
+</head>
+
+<body>
+    <script>
+        /* uma função que instância variáveis */
+        function Pessoa() {
+            this.nome = "Emesson";
+            this.idade = 27;
+
+            /* posso criar funções dentro de uma função e depois chama-la em algum momento futuro */
+            this.printNome = function () {
+                alert(this.nome);
+            }
+
+            /* passando parâmetro */
+            this.printNumero = function (parametro) {
+                alert(parametro);
+            }
+
+            /* interação com outros objetos/funções */
+            this.returnAnimal = function(animal){
+                return animal;
+            }
+        }
+
+        function Animal() {
+            this.nome = "Cachorro";
+            this.peso = "16kg";
+            this.raca = "bulldog";
+        }
+
+        /* Exemplo de uma função que chama outras: interação */
+        var pessoa = new Pessoa();
+        var animal = new Animal();
+        alert(pessoa.returnAnimal(animal).raca);
+
+        function chamarFuncao() {
+            var pessoa = new Pessoa();
+            pessoa.nome = "Carlos"; /* posso modificar a variável */
+            var pessoa2 = new Pessoa(); /* posso criar várias instâncias do mesmo objeto */
+            document.getElementById("exibir").innerHTML = pessoa2.nome;
+            pessoa.printNome();
+            pessoa.printNumero(10);
+        }
+
+        /*
+            Entendimento sobre o uso do "this" no JavaScript;
+            O this é utilizado para fazer com que uma variavel seja criada e instânciada quando a função (ou classe) for instânciada em algum mommento.
+
+            sem o this, quando a função é instânciada (com o uso do new), os elementos que não tem this não serão iniciados.
+
+            Basicamente, o this serve para fazer as variáveis serem instânciadas. Se tiverem muitas variáveis, serão todas instâncidas de uma vez só.
+        */
+
+        /* Um objeto que contém atributos */
+        var carros = {
+            "nome": "Carro X",
+            "ano": 1998,
+            "cor": "preto"
+        };
+
+        function chamarAnimal() {
+            function Animal(nome, peso) {
+                if (nome == undefined) {
+                    this.nome = "Cachorro";
+                }
+
+                if (peso == undefined) {
+                    this.peso = "18kg";
+                }
+
+                this.nome = nome;
+                this.peso = peso;
+            }
+
+            var animal_1 = new Animal("Cachorro", "12kg");
+            document.getElementById("exibir2").innerHTML = animal_1.nome + " tem " + animal_1.peso;
+
+            var animal_2 = new Animal("Gato", "6kg")
+            document.getElementById("exibir3").innerHTML = animal_2.nome + " tem " + animal_2.peso;
+        }
+
+        function chamarObjPar() {
+
+            function Computador() {
+                this.marca = "Acer";
+                this.modelo = "Nitro 5";
+                this.returnComprador = function (comprador) {
+                    return comprador;
+                }
+            }
+
+            function Comprador() {
+                this.nome = "Emesson";
+                this.formaPagamento = "dinheiro";
+            }
+
+            var comprador = new Comprador();
+
+            var computador = new Comprador();
+
+            alert(computador.returnComprador(comprador).nome);
+        }
+    </script>
+</body>
+
+</html>

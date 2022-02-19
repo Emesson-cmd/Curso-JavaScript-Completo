@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+
+    <h2>Mostrar qual informação?</h2>
+
+    <select name="info" id="info">
+        <option value="nome" selected>Nome</option>
+        <option value="idade">Idade</option>
+        <option value="profissão">Profissão</option>
+    </select>
+
+    <button onclick="pegarSelect()">Verificar informação</button>
+
+    <p id="exibir"></p>
+</head>
+<body>
+    <script>
+        var pessoas = [
+            {
+                "nome" : "Emesson",
+                "idade" : 19,
+                "profissão" : "Programador"
+            },
+            {
+                "nome" : "Pedro",
+                "idade" : 20,
+                "profissão" : "Designer"
+            }
+        ];
+
+        function pegarSelect(){
+            var select = document.getElementById("info");
+
+            /*var opcaoTexto = select.options[select.selectedIndex].text;*/
+            var opcaoValor = select.options[select.selectedIndex].value; 
+
+            if(opcaoValor === "nome"){
+                document.getElementById("exibir").innerHTML = pessoas[1].nome;
+            } else if(opcaoValor === "idade"){
+                document.getElementById("exibir").innerHTML = pessoas.idade;
+            } else if(opcaoValor === "profissão"){
+                document.getElementById("exibir").innerHTML = pessoas.profissão;
+            } 
+        }
+        
+    </script>
+</body>
+</html>

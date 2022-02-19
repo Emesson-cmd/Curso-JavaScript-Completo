@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+
+    <h2>Mostrar qual informação?</h2>
+
+    <button onclick="chamarFuncao()">Verificar informação</button>
+
+    <p id="exibir"></p>
+
+</head>
+
+<body>
+    <script>
+        class Animal{
+            constructor(nome) {
+                this.nome = nome;
+            }
+
+            printNome(){
+                return "Gato";
+            }
+        }
+
+        class Cachorro extends Animal{
+            constructor(nome){
+                super(nome); /* tem que dá o super quando o pai tem construtor. O super vai pegar todos os atributos de Animal (tudo que estiver dentro de animal, estará em cachorro.) */
+            }
+        }
+
+        var cachorro = new Cachorro("Nome do animal");
+        alert(cachorro.nome);
+        alert(cachorro.printNome());
+
+        /*animal = new Animal("Rapoza");*/
+
+        /*alert(animal.nome);*/
+        /*alert(animal.printNome());*/
+
+        
+    </script>
+</body>
+
+</html>

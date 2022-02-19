@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com datas</title>
+</head>
+<body>
+    <h2>Verificar data atual e horário atual</h2>
+    <button onclick="exibirDataHora()">Exibir data e hora atual</button>
+    <p id="exibir"></p>
+    <hr>
+    
+    <h2>Verificar somente o dia</h2>
+    <button onclick="exibirDia()">Exibir</button>
+    <p id="exibir2"></p>
+    <hr>
+    
+    <h2>Verificar o mês atual</h2>
+    <button onclick="exibirMes()">Exibir</button>
+    <p id="exibir3"></p>
+    <hr>
+    
+    <h2>Verificar uma informação</h2>
+    <button onclick="exibirInformacao()">Exibir</button>
+    <p id="exibir4"></p>
+    <hr>
+    
+    <h2>Setar data no "new Date()"</h2>
+    <p>Crie uma data "personalizada"</p>
+    <button onclick="setarData()">Exibir</button>
+    <p id="exibir5"></p>
+    <hr>
+    
+    <h2>Calcular diferença de datas</h2>
+    <p>Saiba quantos tempo de diferença uma data tem da outra</p>
+    <button onclick="calcDifData()">Exibir</button>
+    <hr>
+    
+    <!--<h2>Calcular diferença de datas dinâmica</h2>
+    <p>Saiba quantos tempo de diferença uma data tem da outra. Preencha os campos</p>
+    <button onclick="calcDifDataDinamica()">Exibir</button>
+    <hr>-->
+
+    <script>
+        function exibirDataHora(){
+            var date = new Date();
+
+            document.getElementById("exibir").innerHTML = date;
+        }
+        
+        function exibirDia(){
+            var date = new Date();
+
+            document.getElementById("exibir2").innerHTML = date.getDate();
+        }
+        
+        function exibirMes(){
+            var date = new Date();
+
+            document.getElementById("exibir3").innerHTML = date.getMonth();
+        }
+        
+        function exibirInformacao(){
+            var date = new Date();
+
+            // Verifica o dia da semana. Ex.: 0 -> Domingo; 1 -> Segunda; 6 -> Sábado;
+            //document.getElementById("exibir4").innerHTML = date.getDay();
+
+            //Pegar o ano
+            //document.getElementById("exibir4").innerHTML = date.getFullYear();
+
+            //Pegar hora
+            //document.getElementById("exibir4").innerHTML = date.getHours();
+
+            //Pegar minutos
+            //document.getElementById("exibir4").innerHTML = date.getMinutes();
+
+            //Pegar segundos
+            document.getElementById("exibir4").innerHTML = date.getSeconds();
+        }
+
+        function setarData(){
+            var date_2 = new Date("03/28/2022");
+
+            document.getElementById("exibir5").innerHTML = date_2.getDate();
+        }
+
+        function calcDifData(){
+            var date_3 = new Date("03/05/2022");
+            var date_4 = new Date("03/10/2022");
+
+            // Formula para transformar milisegundos em dias. 1000ms = 1s; 3600s = 1h; 24h = 1d;
+            // Basicamente, a diferença de milesegundos entre as duas datas, será convertido em dias.
+            var diferenca = (date_4.getTime() - date_3.getTime()) / (1000 * 3600 * 24);
+
+            alert(diferenca + " dias de diferença.");
+        }
+
+        /*function calcDifDataDinamica(){
+            var dataInput_01 = prompt("Informa uma data no formato mm/dd/aaaa. Exemplo: 02/19/2022.");
+            var date = new Date(dataInput_01.);
+            alert("A data que você informou foi: " + dataInput_01 + ". O dia dessa data é: " + dataInput_01.getDate());
+        }*/
+    </script>
+</body>
+</html>
