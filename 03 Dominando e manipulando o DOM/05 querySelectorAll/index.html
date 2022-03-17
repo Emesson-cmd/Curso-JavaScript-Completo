@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Selector All</title>
+    <style>
+        /* Estilo */
+    </style>
+</head>
+
+<body>
+
+    <div class="testes">
+        <div class="inside-testes">Texto</div>
+    </div>
+
+    <div class="testes">
+        <div class="inside-testes">Texto 2</div>
+    </div>
+
+    <div class="testes">
+        <div class="inside-testes">Texto 3</div>
+    </div>
+    
+    <script>
+        // Script
+
+        var els = document.querySelectorAll('.testes .inside-testes');
+
+        for (var i = 0; i < els.length; i++){
+            els[i].style.color = "red";
+        }
+
+        // Muito util para se manipular elementos. Com quele você consegue pegar vários elmentos de uma vez urilizando o querySelectorAll.
+
+        els[0].innerHTML = "Teste 91";
+        els[1].innerHTML = "<div class='inside-teste-js'>Oi</div>";
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações com JavaScript</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            margin-left: 0;
+        }
+
+        .animEsquerda{
+            transition: 1s;
+            margin-left: 100px;
+            margin-TOP: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box aniEsquerda"></div>
+
+    <script>
+        var box = document.querySelectorAll('.box')[0];
+        
+        /*
+        setTimeout( ()=> {
+            box.classList.add('animEsquerda');
+        }, 1000);
+        */
+
+        // "function nome()" pode ser substituido por "()=>"
+
+        box.addEventListener('click', ()=> {
+            box.classList.add('animEsquerda');
+        })
+    </script>
+</body>
+
+</html>

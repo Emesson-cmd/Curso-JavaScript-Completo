@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionário mais recente e mais antigo</title>
+</head>
+<body>
+    <h2>Problema</h2>
+
+    <p>Uma grande firma deseja saber qual é o empregado mais recente e qual é o empregado mais antigo. Desenvolva um programa para ler um número indeterminado de informações contendo o número do empregado e o número de meses de trabalho deste empregado. Em seguinte, o programa deve calcular e imprimir o mais recente e o mais antigo.</p>
+
+    <p>Obs.: <br>
+        - A saída do sistema deverá ser controla com zero. <br>
+        - Não existem dois empregados admitidos no mesmo mês. <br>
+    </p>
+
+    <button onclick="chamada()">Testar</button>
+
+    <hr> <!-- --------------------------------------------------------------------------------------- -->
+
+    <div>
+        <p style="font-style: italic; color: red;">Não funcionando muito bem ainda</p>
+        <form action="">
+            <label for="nome">Informe seu nome: </label>
+            <input type="text" id="nome"> <br><br>
+            
+            <label for="id">Informe seu id: </label>
+            <input type="number" id="id"> <br><br>
+            
+            <label for="meses">Informe quantos meses você trabalha na firma: </label>
+            <input type="number" id="meses"> <br><br>
+
+            <button type="submit" onclick="addEmp()">Adicionar novo empregado</button>
+            <button type="submit" onclick="addEmpVer()">Adicionar novo empregado e verificar quem é o mais recente e o mais antigo</button>
+        </form>
+        
+    </div>
+
+    <hr> <!-- --------------------------------------------------------------------------------------- -->
+
+    <script>
+
+        function chamada(){
+            var nomeEmp;
+            var qtdeMeses;
+            var idEmp;
+
+            var flag = true;
+
+            var qtdeMesAnt = 0;
+            var nomeEmpAnt = "";
+            var codEmptAnt = 0;
+
+            var qtdeMaisRec = 1000;
+            var nomeEmpRec = "";
+            var codEmptRec = 0;
+
+
+
+            while (flag){
+                nomeEmp = prompt("Qual é o seu nome?");
+                qtdeMeses = Number.parseInt(prompt("Quantos meses você tem de trabalho na firma?"));
+                idEmp = Number.parseInt(prompt("Qual o seu código?"));
+
+                if (qtdeMeses > qtdeMesAnt){
+                    qtdeMesAnt = qtdeMeses;
+                    nomeEmpAnt = nomeEmp;
+                    codEmptAnt = idEmp;
+                }
+
+                if (qtdeMeses < qtdeMaisRec){
+                    qtdeMaisRec = qtdeMeses;
+                    nomeEmpRec = nomeEmp;
+                    codEmptRec = idEmp;
+                }
+
+                var escolha = Number.parseInt(prompt("Deseja continuar? Digite 1 para continuar e 0 para finalizar: "));
+
+                if (escolha === 0){
+                    flag = false;
+                } else {
+                    console.log("Continuando código");
+                }
+            }
+
+            alert("Nome do funcionário mais antigo: " + nomeEmpAnt +
+            "\nCódigo do funcionário mais antigo: " + codEmptAnt +
+            "\nQuantidade de meses do funcionário mais antigo: " + qtdeMesAnt);
+
+            alert("Nome do funcionário mais recente: " + nomeEmpRec +
+            "\nCódigo do funcionário mais recente: " + codEmptRec +
+            "\nQuantidade de meses do funcionário mais recente: " + qtdeMaisRec);
+
+        }
+        
+        function addEmp(){
+            /*
+            var input = document.getElementById("nome");
+            var nome = input.value;
+
+            var input2 = document.getElementById("id");
+            var id = input2.value;
+            
+            var input3 = document.getElementById("meses");
+            var meses = input3.value;
+
+            alert("Seu nome é: " + nome
+            + "\nCódigo: " + id
+            + "\nQuantidade de meses: " + meses);
+            */
+
+            var qtdeMaisAnt = 0;
+            var empMaisAnt = "";
+            var idEmpAnt = 0;
+
+            var input;
+            var nome;
+
+            var input2;
+            var id;
+            
+            var input3;
+            var meses;
+
+            input = document.getElementById("nome");
+            nome = input.value;
+
+            input2 = document.getElementById("id");
+            id = input2.value;
+            
+            input3 = document.getElementById("meses");
+            meses = input3.value;
+
+            if (meses > qtdeMaisAnt){
+                qtdeMaisAnt = meses;
+                idEmpAnt = id;
+                empMaisAnt = nome;
+                alert(qtdeMaisAnt);
+            }
+
+        }
+
+        function addEmpVer(){
+            alert("O empregado mais antigo é: " + empMaisAnt
+            + "\nCódigo: " + idEmpAnt
+            + "\nQuantidade de meses: " + qtdeMaisAnt);
+        }    
+
+        
+
+    </script>
+</body>
+</html>
