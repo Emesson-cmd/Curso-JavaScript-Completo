@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block scopes</title>
+</head>
+<body>
+    <script>
+        // Scope -> isolar código para torna-lo "local" (escopo local)
+        // let -> usado como variável local
+        // var -> usando em variável global
+        // const -> não é possível mudar a variável
+
+        {
+            // Com um escopo podemos "isolar" uma variável ou função. Deixa-las apenas local e não global. mas para isso precisamos utilizar o let
+
+            let nome = "Emesson";
+
+            let minha_funcao = function (){
+                console.log(nome);
+            }
+
+            minha_funcao();
+        }
+    </script>
+</body>
+</html>
