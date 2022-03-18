@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions</title>
+</head>
+<body>
+    <script>
+        // tradicional;
+        function teste(){
+            console.log("Tradicional");
+        }
+
+        //teste();
+
+        // Arrow funcion, mais moderno
+        const func = ()=>{  
+            console.log("Arrow function");
+        }
+
+        //func();
+
+        // Arrow funcion, mais moderno, com parâmetro
+        const func2 = (par)=>{  
+            console.log("Seu nome é: " + par);
+        }
+
+        // func2(prompt("Qual seu nome?"));
+
+        const func3 = (n1, n2)=>{
+            alert("A soma dos valores que você informou é: " + (n1 + n2));
+        }
+
+        //func3(Number.parseInt(prompt("Informe um valor numérico inteiro:")), Number.parseInt(prompt("Informe um outro valor numérico inteiro:")));
+
+        // Basicamente, estou criando uma arrow function que recebe um parâmetro que é uma função
+        //
+        const func4 = (par)=>{
+            par();
+        }
+
+        //func4(()=>{
+        //    alert("Olá mundo");
+        //});
+
+        const func5 = (texto, par)=>{
+            par(texto);
+        }
+
+        func5("meu texto", (texto)=>{
+            console.log(texto);
+        });
+    </script>
+</body>
+</html>
