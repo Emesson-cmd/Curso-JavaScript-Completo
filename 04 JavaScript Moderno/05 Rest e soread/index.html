@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest e spread</title>
+</head>
+<body>
+    <script>
+        // Sobre spread:
+
+        var nomes = [
+            {
+                nome: 'Pedro'
+            },
+            {
+                nome: 'Rafael'
+            }
+        ]
+        
+        // Quando eu adiciono "...nomes," nesse array de objetos, eu estou adicionando os elementos do array "nomes" no array "objetos". Estou fazendo uma junção deles.
+        const objetos = [
+            ...nomes,
+            {
+                nome: 'Emesson'
+            }, 
+            ...nomes, 
+            ...nomes
+        ]
+
+        //console.log(objetos);
+
+
+        
+        // Sobre Rest -> Nos permite criar um array com valores indefinidos. (infinito)
+
+        function func1(...nomes_nomes){
+            console.log(nomes_nomes[10][6][2]);
+            console.log(nomes_nomes[10][5]);
+            console.log(nomes_nomes[6].nome);
+            console.log(nomes_nomes[6].nome[0]);
+        }
+
+        func1(1, 2, 3, 4, 5, 6, {nome: 'Emesson'}, 8.5, 'Pedro', '19kg', [ 7, 8, 9, 10, 11, 12, [13, 14, 15, 16]]);
+    </script>
+</body>
+</html>
