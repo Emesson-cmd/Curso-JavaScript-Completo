@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Tradicional</title>
+</head>
+<body>
+    <script>
+        setTimeout(()=>{
+
+        
+        console.log("teste 1");
+        // ABAIXO TEMOS UM "RECEITA DE BOLO" PARA FAZER UM REQUISIÇÃO AJAX
+
+        // XMLHttpRequest() é uma fnução nativa do JavaScript
+        var request = new XMLHttpRequest();
+        console.log("teste 2");
+
+        // Aqui você "abre" uma conexão da requisição AJAX. Temos 3 parâmetros:
+        // 1º -> GET, mas também poderia ser outro, tal como POST, DELETE, PATCH
+        // 2º -> Link da API Rest na qual você quer recuperar informações
+        // 3º -> valor booleano, true. Eu ainda não sei ao que ele se refere
+        request.open('GET', 'https://jsonplaceholder.typicode.com/users/9', true);
+        console.log("teste 3");
+
+        request.onload = function(){
+            console.log("teste 4");
+            // Fazer verificação para ver se a requisição teve sucesso.
+
+            // Por que o uso do "this?" Como posso compreender melhor sobre ele? O this é uma forma de fazer referência a uma instânicia de objeto? Como no caso de new XMLHttpRequest()? Então ao utilizar o this seria o equivalente ao "request.status", por exemplo? 
+            if (this.status >= 200 && this.status < 400){
+                // request feito com sucesso.
+
+                // "this.response" seria a resposta adquirida pelo requisição ao link 'https://jsonplaceholder.typicode.com/todos/1'? Em que formato seria o valor de this.response?
+                
+                console.log("teste 5");
+                console.log(this.response); // aqui estou verificando o formato desse elemento.
+                // this.response seria o próprio objeto, com suas informações
+                // O método JSON.parse(arg) converte uma resposta no formato (XML?) para o formato JSON
+                var data = JSON.parse(this.response);
+                console.log(data);
+            } else {
+                // erro. Não foi possível 
+                console.log('Deu erro');
+            }
+        }
+
+        // Fazer verificação caso haja um erro na requisição.
+
+        request.onerror = function(){
+            console.log('teste');
+        }
+
+        console.log("teste 6");
+        request.send();
+
+        }, 2000)
+    </script>
+</body>
+</html>
