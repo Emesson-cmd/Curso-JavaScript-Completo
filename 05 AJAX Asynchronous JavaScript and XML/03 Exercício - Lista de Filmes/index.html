@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Filme</title>
+    <style>
+        .botao-centralizar{
+            height: 40px;
+            width: 40px;
+            background-color: yellow;
+            position: fixed;
+            bottom: 20px;
+            right: 70px;
+            border-radius: 20px;
+        }
+
+        .botao-centralizar img{
+            margin: 7.9px;
+        }
+
+        .botao-alinhar-esquerda{
+            height: 40px;
+            width: 40px;
+            background-color: red;
+            position: fixed;
+            bottom: 20px;
+            right: 120px;
+            border-radius: 20px;
+        }
+
+        .botao-alinhar-esquerda img{
+            margin: 7.9px;
+        }
+
+        .botao-alinhar-direita{
+            height: 40px;
+            width: 40px;
+            background-color: pink;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 20px;
+        }
+
+        .botao-alinhar-direita img{
+            margin: 7.9px;
+        }
+
+        .container{
+            max-width: 1200px;
+            margin: 0 20%;
+        }
+
+        .container img{
+            margin: 30px 0;
+        }
+
+        html{
+            color: white;
+            background-color: black;
+        }
+
+        .controle{
+            text-align: center;
+        }
+
+        .controle p{
+            display: inline-block;
+            text-align: center;
+            padding: 20px 25%;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .controle p:hover{
+            background-color: rgb(0, 197, 49);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+    </div>
+
+    <div class="controle">
+        <p class="anterior">Lista anterior</p>
+        <p class="proximo">Próximo lista</p>
+    </div>
+
+    <div class="botao-alinhar-esquerda">
+        <img src="align-left-24px.png" alt="Alinhar à esquerda">
+    </div>
+
+    <div class="botao-centralizar">
+        <img src="align-center-24px.png" alt="Centralizar">
+    </div>
+
+    <div class="botao-alinhar-direita">
+        <img src="align-righ-24px.png" alt="Alinhar à direita">
+    </div>
+
+    <script>
+        var proximo = document.querySelector('.proximo');
+        var page = 1;
+        /*proximo.addEventListener('click',function(){
+            page += 1;
+        })*/
+
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=506fadb0256c13349acc05dabebf9604&language=pt-BR&page='+page+'',{
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(function(json){
+            var container = document.querySelector(".container");
+
+            // console.log(json);
+            
+            json.results.map(function(val){
+                container.innerHTML += `
+                
+                    <div style=" cursor: pointer;" class="tituloFilme">
+
+                        ` + val.title + `
+                        
+                        <div style="display:none" class="poster">
+                            <img src="https://image.tmdb.org/t/p/w200`+val.poster_path+`">
+                        </div>
+
+                        <div style="display:none" class="description"> <p>` + val.overview + `</p> </div>
+
+                        <hr>
+                    </div>
+                `;
+            })
+
+            var titulos = document.querySelectorAll('.tituloFilme');
+            
+            for (var i = 0; i < titulos.length; i++){
+                titulos[i].addEventListener('click', function(t){
+                    //t.target.chieldNode[0];
+                    if (t.target.querySelector('.description').style.display === "none"){
+                        t.target.querySelector('.description').style.display = "block";t.target.querySelector('.poster').style.display = "block";
+                    } else {
+                        t.target.querySelector('.description').style.display = "none";t.target.querySelector('.poster').style.display = "none";
+                    }
+                })
+            }
+        });
+
+        /*Em response é retornado um objeto (que contém várias características)
+        Entre umas das características desse objeto temos o "json"*/
+
+        var botaoCentralizar = document.querySelector('.botao-centralizar');
+        botaoCentralizar.addEventListener('click', function(){
+            //document.querySelectorAll(".tituloFilme").style.textAlign = "center";
+            var titulos = document.querySelectorAll(".tituloFilme");
+            for (var i = 0; i < titulos.length; i++){
+                titulos[i].style.textAlign = "center";
+            }
+        });
+
+        var botaoAlinharEsquerda = document.querySelector('.botao-alinhar-esquerda');
+        botaoAlinharEsquerda.addEventListener('click', function(){
+            var titulos = document.querySelectorAll(".tituloFilme");
+            for (var i = 0; i < titulos.length; i++){
+                titulos[i].style.textAlign = "left";
+            }
+        });
+
+        var botaoAlinharDireita = document.querySelector('.botao-alinhar-direita');
+        botaoAlinharDireita.addEventListener('click', function(){
+            var titulos = document.querySelectorAll(".tituloFilme");
+            for (var i = 0; i < titulos.length; i++){
+                titulos[i].style.textAlign = "right";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+.titulo{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.lista-atividades{
+    margin-top: 20px;
+    padding: 10PX;
+}
+
+.lista-atividade-single{
+    display: flex;
+    padding: 5px;
+    border-bottom: 2px solid black;
+}
+
+.lista-atividade-single input[type=checkbox]{
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.lista-atividade-single h3{
+    flex: 1;
+}
+
+.adicionar-atividade{
+    margin: 10px;
+    padding: 5px 10px;
+    color: white;
+    background-color: black;
+}
+
+.tachar-atividade{
+    text-decoration: line-through;
+}
