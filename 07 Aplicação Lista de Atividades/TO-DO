@@ -1,0 +1,11 @@
+- Comentar o código para saber o que exatamente ele tá fazendo
+
+- Fazer exclusão de atividades
+
+- Corrigir o problema de quando eu adiciono uma nova atividades o checkbox das outras atividades ficam desmarcados
+
+- Fazer verificação quando for adicionado uma nova atividade. Caso esteja nulo o campo, pedir para repetir a operação.
+
+- Fazer input de atividades por um form, onde tenha o campo para inserir a nova atividades, um botão para adiciona-la e um botão para limpar o campo
+
+- Fazer alguma estratégia (talvez arquivo XML) para persistir dados.

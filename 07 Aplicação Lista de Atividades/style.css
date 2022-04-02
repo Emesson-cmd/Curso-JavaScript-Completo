@@ -47,3 +47,13 @@ header{
 .tachar-atividade{
     text-decoration: line-through;
 }
+
+.teste{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: green;
+}

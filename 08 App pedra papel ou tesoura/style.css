@@ -19,3 +19,43 @@ h1 {
 .align{
     display: flex;
 }
+
+.vencedor{
+    float: left;
+    height: 30px;
+}
+
+.question-answer{
+    position: absolute;
+    right: 10px;
+    display: none;
+    height: auto;
+    width: max-content;
+    background-color: gray;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+.question{
+    float: right;
+    height: 40px;
+    width: 40px;
+    background-color: gray;
+    border-radius: 21.5px;
+    border: 3px solid black;
+}
+
+.question:hover{
+    display: block;
+}
+
+.clear{
+    clear: both;
+}
+
+.question span{
+    font-size: 36px;
+    margin-left: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+}
