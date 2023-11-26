@@ -1,3 +1,5 @@
+const host = window.location.href
+
 const list = [
   {
     title: 'Aulas',
@@ -211,7 +213,7 @@ function verifyItens(module, _space) {
     }
 
     tempList += `<li style="margin-left: 1rem;">
-                    <a href="http://127.0.0.1:5500/${content.link}">${content.title}</a>
+                    <a href="${host}${content.link}">${content.title}</a>
                 </li>`;
   });
 
@@ -223,6 +225,7 @@ function verifyItens(module, _space) {
 }
 
 function fillList() {
+
   const listEl = document.getElementById('list');
   var tempList = '';
 
